@@ -116,6 +116,10 @@ body {
   margin-bottom: 20px;
 }
 
+.CardLink {
+  margin-top: 20px;
+}
+
 .LinkArticle {
   font-weight: 700;
   font-size: 16px;

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import Container from "@mui/material/Container"
 
 import Cards from "./components/Cards"
 import Filter from "./components/Filter"
@@ -10,12 +9,13 @@ function App() {
   const [articles, setArticles] = useState([])
   const [search, setSearch] = useState("")
 
+  // const [startQequest, setStartQequest] = useState(1)
+
   // !зробити скидання пошуку
 
   useEffect(() => {
     async function getAllArticles() {
       const allArticles = await fetchAllArticles()
-      // console.log("allArticles", allArticles)
 
       setArticles(allArticles)
     }
@@ -41,11 +41,12 @@ function App() {
   }, [search])
 
   function trackingSearchQuery(evt) {
+    setSearch("")
+    console.log("search", search)
     evt.preventDefault()
 
     const form = evt.currentTarget
     const searchValue = form.elements.search.value
-    // console.log("searchValue", searchValue)
 
     if (searchValue === "") {
       return console.log("Empty search value")
@@ -59,7 +60,7 @@ function App() {
   return (
     <div className="Container">
       <Filter onSubmit={trackingSearchQuery} />
-      <Cards articles={articles} />
+      <Cards articles={articles} search={search} />
     </div>
   )
 }

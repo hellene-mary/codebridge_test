@@ -7,8 +7,11 @@ import Stack from "@mui/material/Stack"
 import { Link } from "@mui/material"
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded"
 import { dateFormater } from "./utils/dateFormatter"
+import Highlighter from "react-highlight-words"
 
-const Cards = ({ articles }) => {
+const Cards = ({ articles, search }) => {
+  const searchArr = search.split(/\s/).filter((word) => word)
+
   return (
     <>
       <p className="TextBold Border">Results: {articles.length}</p>
@@ -36,13 +39,23 @@ const Cards = ({ articles }) => {
                   <DateRangeIcon />
                   {dateFormater(article.publishedAt)}
                 </p>
-                <h1 className="TitleArticle">{article.title}</h1>
+                <Highlighter
+                  className="TitleArticle"
+                  searchWords={searchArr}
+                  textToHighlight={article.title}
+                />
+                {/* <h1 className="TitleArticle">{article.title}</h1> */}
               </div>
               <div>
-                <p className="SummaryArticle">
+                <Highlighter
+                  className="SummaryArticle"
+                  searchWords={searchArr}
+                  textToHighlight={`${article.summary.slice(0, 150)}...`}
+                />
+                {/* <p className="SummaryArticle">
                   {article.summary.slice(0, 100)}...
-                </p>
-                <CardActions>
+                </p> */}
+                <CardActions sx={{ padding: "0" }} className="CardLink">
                   <Link
                     className="LinkArticle"
                     sx={{ textDecoration: "none" }}

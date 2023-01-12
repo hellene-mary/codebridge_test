@@ -5,10 +5,7 @@ import InputAdornment from "@mui/material/InputAdornment"
 
 const Filter = ({ onSubmit }) => {
   return (
-    <Box
-      className="BoxFilter"
-      // sx={{ width: 600, height: 80, marginBottom: "40px" }}
-    >
+    <Box className="BoxFilter">
       <p className="TextBold"> Filter by keywords</p>
 
       <Box className="BoxForm" component="form" onSubmit={onSubmit}>
@@ -27,7 +24,6 @@ const Filter = ({ onSubmit }) => {
               </InputAdornment>
             ),
           }}
-          // sx={{ width: 600, height: 50 }}
         ></TextField>
       </Box>
     </Box>

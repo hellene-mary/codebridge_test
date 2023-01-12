@@ -1,15 +1,9 @@
 export function filterByKeyword(search, articles) {
-  console.log("articles", articles)
-  console.log("search", search)
-
   const filteredArray = []
 
   for (const article of articles) {
-    console.log("article.id", article.id)
-
     if (article.title.toLowerCase().indexOf(search.toLowerCase()) !== -1) {
       filteredArray.push({ ...article, priority: 1 })
-      console.log("filteredArray", filteredArray)
     } else if (
       article.summary.toLowerCase().indexOf(search.toLowerCase()) !== -1
     ) {
@@ -17,7 +11,7 @@ export function filterByKeyword(search, articles) {
     }
   }
 
-  console.log("filteredArray", filteredArray)
+  // console.log("filteredArray", filteredArray)
   return filteredArray
 }
 
