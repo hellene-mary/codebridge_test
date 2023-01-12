@@ -2,19 +2,18 @@
   width: 600px;
   height: 80px;
   margin-bottom: 40px;
-
-  p {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
-    margin-bottom: 10px;
-  }
 }
 
-//     font-size: 16px;
-//     font-weight: 600;
-// font-size: 16px;
-// line-height: 150%;
+// ^використання декілька разів
+.TextBold {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  &.Border {
+    border-bottom: 1px solid #eaeaea;
+  }
+}
 
 .BoxForm {
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);

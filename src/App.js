@@ -3,8 +3,8 @@ import Container from "@mui/material/Container"
 
 import Cards from "./components/Cards"
 import Filter from "./components/Filter"
-import { fetchAllArticles, fetchArticlesByQuery } from "./components/api"
-import { filterByKeyword } from "./components/filterBykeywords"
+import { fetchAllArticles, fetchArticlesByQuery } from "./components/utils/api"
+import { filterByKeyword } from "./components/utils/filterBykeywords"
 
 function App() {
   const [articles, setArticles] = useState([])

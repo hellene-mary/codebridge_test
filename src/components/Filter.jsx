@@ -9,7 +9,7 @@ const Filter = ({ onSubmit }) => {
       className="BoxFilter"
       // sx={{ width: 600, height: 80, marginBottom: "40px" }}
     >
-      <p> Filter by keywords</p>
+      <p className="TextBold"> Filter by keywords</p>
 
       <Box className="BoxForm" component="form" onSubmit={onSubmit}>
         <TextField
