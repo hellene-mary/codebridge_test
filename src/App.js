@@ -4,10 +4,13 @@ import Container from "@mui/material/Container"
 import Cards from "./components/Cards"
 import Filter from "./components/Filter"
 import { fetchAllArticles, fetchArticlesByQuery } from "./components/api"
+import { filterByKeyword } from "./components/filterBykeywords"
 
 function App() {
   const [articles, setArticles] = useState([])
   const [search, setSearch] = useState("")
+
+  // !зробити скидання пошуку
 
   useEffect(() => {
     async function getAllArticles() {
@@ -27,12 +30,12 @@ function App() {
       return
     }
 
-    async function aaaaa() {
-      const serch = await fetchArticlesByQuery(search)
-      console.log("serch", serch)
-    }
+    const filtredArticles = filterByKeyword(search, articles)
+    // !sort
+    // console.log("filtredArticles", filtredArticles)
+    // const sortArticles = filtredArticles.sort((a, b) => a.priority - b.priority)
 
-    aaaaa()
+    setArticles(filtredArticles)
 
     return () => {}
   }, [search])
@@ -42,7 +45,7 @@ function App() {
 
     const form = evt.currentTarget
     const searchValue = form.elements.search.value
-    console.log("searchValue", searchValue)
+    // console.log("searchValue", searchValue)
 
     if (searchValue === "") {
       return console.log("Empty search value")
@@ -54,10 +57,10 @@ function App() {
   }
 
   return (
-    <Container maxWidth="1440px" sx={{ padding: "50px 75px" }}>
+    <div className="Container">
       <Filter onSubmit={trackingSearchQuery} />
       <Cards articles={articles} />
-    </Container>
+    </div>
   )
 }
 
