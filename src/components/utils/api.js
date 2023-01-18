@@ -5,7 +5,7 @@ axios.defaults.baseURL = "https://api.spaceflightnewsapi.net/v3/articles"
 export async function fetchAllArticles() {
   try {
     const res = await axios.get("", {
-      params: { _limit: 100, _start: 1 },
+      params: { _limit: 20, _start: 1 },
     })
     return res.data
   } catch (error) {
