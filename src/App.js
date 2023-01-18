@@ -16,13 +16,11 @@ function App() {
   useEffect(() => {
     async function getAllArticles() {
       const allArticles = await fetchAllArticles()
-
       setArticles(allArticles)
     }
 
     getAllArticles()
-
-    return () => {}
+    // return () => {}
   }, [])
 
   useEffect(() => {
@@ -31,6 +29,7 @@ function App() {
     }
 
     const filtredArticles = filterByKeyword(search, articles)
+
     // !sort
     // console.log("filtredArticles", filtredArticles)
     // const sortArticles = filtredArticles.sort((a, b) => a.priority - b.priority)
