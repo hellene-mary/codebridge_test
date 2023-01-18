@@ -60,6 +60,7 @@ const Cards = ({ articles, search }) => {
                     className="LinkArticle"
                     sx={{ textDecoration: "none" }}
                     href={article.url}
+                    underline="hover"
                     color="inherit"
                   >
                     Read more
